@@ -1,0 +1,4 @@
+venv/
+praw.ini
+config.json
+log.txt
