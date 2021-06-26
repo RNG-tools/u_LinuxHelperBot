@@ -1,0 +1,21 @@
+{
+  "text_values":
+  {
+    "help": 4,
+    "anybody": 3,
+    "anyone": 3,
+    "How": 5,
+    "I can't": 10,
+    "I cant": 10,
+    "Why": 4,
+    "How do I": 10,
+    "driver": 3,
+    "not working": 10,
+    "won't boot": 10,
+    "wont boot": 10,
+    "?": 7,
+    "know how": 7,
+    "problem": 7,
+    "question": 4
+  }
+}
