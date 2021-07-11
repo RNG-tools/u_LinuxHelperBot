@@ -1,11 +1,11 @@
 {
   "text_values":
   {
-    "help": 4,
-    "anybody": 3,
-    "anyone": 3,
-    "any1": 1,
-    "How": 5,
+    "help": 3,
+    "anybody": 2,
+    "anyone": 2,
+    "any1": 2,
+    "How": 3,
     "I can't": 10,
     "I cant": 10,
     "Why": 4,
@@ -16,7 +16,12 @@
     "wont boot": 10,
     "?": 7,
     "know how": 7,
-    "problem": 7,
-    "question": 4
+    "problem": 5,
+    "question": 4,
+    "asap": 4,
+    "course": -2,
+    "free": -2,
+    "book": -3,
+    "udemy": -3
   }
 }

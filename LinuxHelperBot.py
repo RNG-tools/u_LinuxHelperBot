@@ -1,9 +1,13 @@
-#!/usr/bin/env python3
+#!/home/daniel/Documents/u_LinuxHelperBot/venv/bin/python3
 
 import praw
 import re
 import json
 from datetime import datetime
+import os
+
+
+os.chdir("/home/daniel/Documents/u_LinuxHelperBot")
 
 
 class LinuxHelperBot:
@@ -70,7 +74,7 @@ class LinuxHelperBot:
                 for word in self._text_values:
                     if word.lower() in (post.title.lower() + post.selftext.lower()):
                         value += self._text_values[word]
-                    if value >= 10:
+                    if (value >= 12 and len(post.selftext) + len(post.title) < 500) or (value >= 20):
                         print(f"{post.title} has a score of {value}")
                         try:
                             the_reply = f"""
@@ -84,11 +88,13 @@ you'll have better luck asking a question in one of the following subreddits:
 - r/techsupport
 
 Check the sidebar for more information. Before posting a question in these subreddits, see if you can make any progress
-by Googling the *precise* issues and/or errors you are having. Please consider removing your submission if you believe
-it better belongs in another subreddit.
+by Googling the *precise* issues and/or errors you are having. 
+
+**Please consider removing your submission if you believe it better belongs in another subreddit. Thank you!**
 
 Kali Linux isn't the best choice for learning the basics of GNU/Linux. Other distros are far more beginner friendly
-like Pop!_OS (r/pop_os), Linux Mint (r/linuxmint), and Ubuntu (r/Ubuntu).
+like Pop!_OS (r/pop_os), Linux Mint (r/linuxmint), and Ubuntu (r/Ubuntu). GNU/Linux is useful for far more than just "hacking",
+check out r/linux_gaming and r/linuxmasterrace to meet fellow Linux users. Looking forward to seeing you there! :)
 
 [ This message was sent automatically, if sent in error, please disregard. PM for feedback :) ]                 
 """
@@ -100,7 +106,7 @@ like Pop!_OS (r/pop_os), Linux Mint (r/linuxmint), and Ubuntu (r/Ubuntu).
 
                             with open("log.txt", "a") as log:
                                 now = datetime.now()
-                                time = now.strftime("%d/%m/%Y %H:%M:%S")
+                                time = now.strftime("%m/%d/%Y %H:%M:%S")
                                 log.write("=========================\n")
                                 log.write("Bot Action Successful!\n")
                                 log.write(time + "\n")
@@ -116,7 +122,7 @@ like Pop!_OS (r/pop_os), Linux Mint (r/linuxmint), and Ubuntu (r/Ubuntu).
                             print(error)
                             with open("log.txt", "a") as log:
                                 now = datetime.now()
-                                time = now.strftime("%d/%m/%Y %H:%M:%S")
+                                time = now.strftime("%m/%d/%Y %H:%M:%S")
                                 log.write("=========================\n")
                                 log.write("Bot Action Failed!\n")
                                 log.write(time + "\n")
@@ -125,16 +131,19 @@ like Pop!_OS (r/pop_os), Linux Mint (r/linuxmint), and Ubuntu (r/Ubuntu).
                                 print("See log for details.")
                             self.write_to_json()
                             return False
+                # print(f"{post.title} has {value} points.")
         print("No results found.")
+        '''
         with open("log.txt", "a") as log:
             now = datetime.now()
-            time = now.strftime("%d/%m/%Y %H:%M:%S")
+            time = now.strftime("%m/%d/%Y %H:%M:%S")
             log.write("=========================\n")
             log.write("Bot Didn't Find a Match\n")
             log.write(time + "\n")
             log.write(f"No posts reached the 10 point threshold found.\n")
             log.write("=========================\n\n")
             print("See log for details.")
+        '''
         self.write_to_json()
 
     def find_and_reply(self, subreddit, search_text, reply_text, mode="hot", search_limit=5):
@@ -166,7 +175,7 @@ like Pop!_OS (r/pop_os), Linux Mint (r/linuxmint), and Ubuntu (r/Ubuntu).
 
                         with open("log.txt", "a") as log:
                             now = datetime.now()
-                            time = now.strftime("%d/%m/%Y %H:%M:%S")
+                            time = now.strftime("%m/%d/%Y %H:%M:%S")
                             log.write("=========================\n")
                             log.write("Bot Action Successful!\n")
                             log.write(time + "\n")
@@ -182,7 +191,7 @@ like Pop!_OS (r/pop_os), Linux Mint (r/linuxmint), and Ubuntu (r/Ubuntu).
                         print(error)
                         with open("log.txt", "a") as log:
                             now = datetime.now()
-                            time = now.strftime("%d/%m/%Y %H:%M:%S")
+                            time = now.strftime("%m/%d/%Y %H:%M:%S")
                             log.write("=========================\n")
                             log.write("Bot Action Failed!\n")
                             log.write(time + "\n")
