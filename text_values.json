@@ -15,6 +15,9 @@
     "won't boot": 10,
     "wont boot": 10,
     "?": 7,
+    "plz": 5,
+    "pls": 5,
+    "help me": 10,
     "know how": 7,
     "problem": 5,
     "question": 4,
@@ -22,6 +25,7 @@
     "course": -2,
     "free": -2,
     "book": -3,
-    "udemy": -3
+    "udemy": -3,
+    "to help me": -10
   }
 }
